@@ -168,29 +168,7 @@ function mostrar_paradas_de_lineas(lineas) {
     }
 }
 
-    
-    // for (const [key, latlngs] of Object.entries(json)) {
 
-        // var esquipear_linea = true
-
-        // for (const lat_long of latlngs) {
-        //     if (L.latLng(lat_long).distanceTo(coord_casa) < radio_caminata) {
-        //         esquipear_linea = false
-        //         break
-        //     }
-        // }
-
-        // if (esquipear_linea) {
-        //     continue
-        // }
-
-        // polylines.push(L.polyline(latlngs, {color:"red"}).bindPopup("linea"))
-        // polyline.setOffset(2)
-
-        // for (const lat_long of latlngs) {
-        //     // dibujar_punto(lat_long)
-        // }
-    // }
 
 
 
@@ -263,10 +241,20 @@ console.log("CARGANDO RECORRIDOS")
 await fetch('./gtfs/recorridos.json')
     .then((response) => response.json())
     .then(cargar_recorridos_lineas)
-    .then(mostrar_todas_las_lineas)
+    // .then(mostrar_todas_las_lineas)
 
 console.log("CARGADO TERMINADO")
 
+
+//poner la primera ubicacion en la ubicacion del dispositivo
+navigator.geolocation.getCurrentPosition((position) => {
+
+    const latlng = L.latLng(position.coords.latitude, position.coords.longitude)
+    mostrar_lineas_cerca_de(latlng)
+
+    map.flyTo(latlng, 13.5)
+    console.log("Se cargo la ubicacion del usuario", latlng)
+})
 
 function crear_nuevo_punto(latlng) {
     const nuevoPunto = L.circle(latlng, {radius:4,
