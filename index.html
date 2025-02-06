@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+
+
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body,
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+
+    <!-- Puede que me sirva para optimizar cuando se muestran todos los colectivos -->
+    <!-- https://github.com/iamtekson/leaflet-geojson-vt -->
+    <script src="https://unpkg.com/geojson-vt@3.2.0/geojson-vt.js"></script>
+    <script src="./leaflet-geojson-vt.js"></script>
+
+    <!-- Version ligeramente modificada -->
+    <!-- https://github.com/mutsuyuki/Leaflet.SmoothWheelZoom -->
+    <script src="./SmoothWheelZoom.js"></script>
+
+    <!-- Todavía no se usa. Pero tal vez lo use en un futuro para cuando muchas lineas vayan por una misma calle. Ver demo original en /example_bus.html -->
+    <!-- https://github.com/bbecquet/Leaflet.PolylineOffset -->
+    <script src="leaflet.polylineoffset.js"></script>
+
+    
+    <script src="index.js" type="module"></script>
+
+</body>
+
+</html>
