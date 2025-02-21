@@ -22,7 +22,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '<a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
-L.marker([-34.6173459,-58.4531727]).addTo(map);
+// L.marker([-34.6173459,-58.4531727]).addTo(map);
 
 
 let punto = null
